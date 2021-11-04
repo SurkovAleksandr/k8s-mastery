@@ -11,6 +11,12 @@
 ``` 
 $ docker run -d -p 8080:8080 -e SA_LOGIC_API_URL='http://<container_ip or docker machine ip>:5000' $DOCKER_USER_ID/sentiment-analysis-web-app  
 ```
+Создание образа:
+> docker build -t surkovhub/sa_webapp:1.0 .
+
+Создание контейнера:
+> docker run -d --name sa_webapp -p 8080:8080 surkovhub/sa_webapp:1.0
+
 
 #### Native docker support needs the Container IP
 CONTAINER_IP: To forward messages to the sa-logic container we need to get  its IP. To do so execute:
@@ -35,3 +41,6 @@ Use this one in the command.
 ` $ docker push $DOCKER_USER_ID/sentiment-analysis-web-app `
 
 
+## Замечания
+- sa-webapp делает запросы к приложению sa-logic(Python приложение) по URL _http://localhost:5000_. Если sa-webapp будет запускаться в контейнере, а sa-logic будет запускаться не в контейнере, а на хосте, то URL надо изменить(смотреть переменную SA_LOGIC_API_URL). Как это делать можно посмотреть тут https://stackoverflow.com/questions/24319662/from-inside-of-a-docker-container-how-do-i-connect-to-the-localhost-of-the-mach
+- 

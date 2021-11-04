@@ -1,0 +1,6 @@
+target/classes
+target/generated-sources
+target/maven-archiver
+target/maven-status
+target/sentiment-analysis-web-0.0.1-SNAPSHOT.jar.original
+src

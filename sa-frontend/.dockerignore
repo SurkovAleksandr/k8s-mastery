@@ -1,0 +1,8 @@
+#Этот файл содержит список файлов, которые надо игнорировать при формировании контекста docker.
+# При сборки контейнера docker 'build -t surkovhub/sa_frontend:1.0 .' в логах сборки
+# - с этим фалом:    'Sending build context to Docker daemon  2.837MB'
+# - без этого файла: 'Sending build context to Docker daemon  145.2MB'
+.gradle
+node_modules
+public
+src
